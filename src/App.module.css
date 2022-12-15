@@ -1,0 +1,8 @@
+.todo-app {
+  background-color: #15173b;
+  border-radius: 1rem;
+  width: 50%;
+  max-width: 480px;
+  min-width: 360px;
+  height: 600px;
+}

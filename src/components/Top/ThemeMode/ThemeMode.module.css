@@ -1,0 +1,12 @@
+.button {
+  padding: 0 1rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.icon {
+  fill: #ffffff;
+  width: 1.5rem;
+  height: auto;
+}

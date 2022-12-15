@@ -1,0 +1,15 @@
+.no-bullets {
+  list-style-type: none;
+}
+
+.wrapper {
+  display: flex;
+  padding: 0 1rem;
+}
+
+.tab {
+  padding: 0 0.5rem;
+  font-size: 1.5rem;
+  color: #eb9534;
+  cursor: pointer;
+}
