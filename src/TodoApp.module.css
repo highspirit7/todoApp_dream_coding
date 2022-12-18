@@ -1,8 +1,10 @@
 .todo-app {
-  background-color: #15173b;
-  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
   width: 50%;
   max-width: 480px;
   min-width: 360px;
   height: 540px;
+  border-radius: 1rem;
+  background-color: #292c63;
 }
