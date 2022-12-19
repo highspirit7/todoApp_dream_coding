@@ -22,6 +22,10 @@
   border-bottom-right-radius: 1rem;
 }
 
+.add-button:hover {
+  filter: brightness(0.9);
+}
+
 .add-input {
   padding: 0 1rem;
   flex-grow: 10;

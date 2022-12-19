@@ -11,6 +11,10 @@
   border-radius: 50%;
 }
 
+.button:hover {
+  filter: brightness(0.9);
+}
+
 .list-item {
   display: flex;
   align-items: center;
@@ -18,12 +22,6 @@
   padding: 0.5rem 1rem;
   color: #fff;
   font-size: 1.25rem;
-}
-
-.icon {
-  fill: #ffffff;
-  width: 1rem;
-  height: auto;
 }
 
 .checkbox {

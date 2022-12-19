@@ -1,11 +1,11 @@
 import React from "react";
-import { CiLight, CiDark } from "react-icons/ci";
+import { BsSun } from "react-icons/bs";
 import style from "./ThemeMode.module.css";
 
 const ThemeMode = () => {
   return (
     <button className={style.button}>
-      <CiLight className={style.icon} />
+      <BsSun className={style.icon} />
     </button>
   );
 };

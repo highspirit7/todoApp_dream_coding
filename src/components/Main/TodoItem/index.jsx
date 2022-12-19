@@ -1,21 +1,24 @@
 import React from "react";
 import style from "./TodoItem.module.css";
-import { CiTrash } from "react-icons/ci";
+import { BsTrash } from "react-icons/bs";
 
-const TodoItem = () => {
+const TodoItem = (props) => {
+  const { item } = props;
+  const { name, done } = item;
+
   return (
     <li className={style["list-item"]}>
       <div>
         <input
           type="checkbox"
           id="section1"
-          checked={true}
+          checked={done}
           className={style.checkbox}
-        ></input>
-        <label for="section1">리액트 드림 코딩 section 1</label>
+        />
+        <label htmlFor="section1">{name}</label>
       </div>
       <button className={style.button}>
-        <CiTrash className={style.icon} />
+        <BsTrash color="white" />
       </button>
     </li>
   );
