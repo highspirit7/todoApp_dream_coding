@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { getItemAndParse } from "utils/localStorage";
 import style from "./Bottom.module.css";
 
-const Bottom = () => {
+const Bottom = (props) => {
+  const { setTodos } = props;
   const [inputValue, setInputValue] = useState("");
   const localStorage = window.localStorage;
 
@@ -22,6 +23,7 @@ const Bottom = () => {
       }
 
       localStorage.setItem("todos", newTodos);
+      setTodos(newTodos);
     } catch (error) {
       console.error(error);
       alert("Failed to add a new todo item...");
