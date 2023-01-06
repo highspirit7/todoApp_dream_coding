@@ -23,7 +23,7 @@ const Bottom = (props) => {
       }
 
       localStorage.setItem("todos", newTodos);
-      setTodos(newTodos);
+      setTodos(JSON.parse(newTodos));
     } catch (error) {
       console.error(error);
       alert("Failed to add a new todo item...");

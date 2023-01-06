@@ -11,12 +11,12 @@ function TodoApp() {
 
   useEffect(() => {
     setTodos(todoItems);
-  }, [todoItems]);
+  }, []);
 
   return (
     <div className={style["todo-app"]}>
       <Top />
-      <Main todos={todos} />
+      <Main todos={todos} setTodos={setTodos} />
       <Bottom setTodos={setTodos} />
     </div>
   );
