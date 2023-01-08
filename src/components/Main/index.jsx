@@ -15,6 +15,7 @@ const Main = (props) => {
               index={index}
               key={`${item.name + index}`}
               setTodos={setTodos}
+              todos={todos}
             />
           ))}
         </ul>

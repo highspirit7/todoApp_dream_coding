@@ -4,7 +4,7 @@ import { getItemAndParse } from "utils/localStorage";
 import style from "./TodoItem.module.css";
 
 const TodoItem = (props) => {
-  const { item, setTodos, index } = props;
+  const { item, setTodos, index, todos } = props;
   const { name, done } = item;
 
   const checkTodoItem = (value) => {
@@ -15,6 +15,15 @@ const TodoItem = (props) => {
 
     localStorage.setItem("todos", JSON.stringify(todos));
     setTodos(todos);
+  };
+
+  const deleteTodoItem = () => {
+    const updatedTodos = todos.filter(
+      (item, i) => item.name !== name && i !== index,
+    );
+
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    setTodos(updatedTodos);
   };
 
   return (
@@ -36,7 +45,7 @@ const TodoItem = (props) => {
           {name}
         </label>
       </div>
-      <button className={style.button}>
+      <button className={style.button} onClick={deleteTodoItem}>
         <BsTrash color="white" />
       </button>
     </li>
