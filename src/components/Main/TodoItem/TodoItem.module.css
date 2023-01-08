@@ -20,8 +20,16 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  color: #fff;
   font-size: 1.25rem;
+}
+
+.uncompleted-item {
+  color: #fff;
+}
+
+.completed-item {
+  text-decoration: line-through;
+  color: #5c5a54;
 }
 
 .checkbox {

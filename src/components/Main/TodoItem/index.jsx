@@ -22,14 +22,19 @@ const TodoItem = (props) => {
       <div>
         <input
           type="checkbox"
-          id="section1"
+          id="todoItem"
           checked={done}
           className={style.checkbox}
           onChange={(e) => {
             checkTodoItem(e.target.checked);
           }}
         />
-        <label htmlFor="section1">{name}</label>
+        <label
+          htmlFor="todoItem"
+          className={done ? style["completed-item"] : style["uncompleted-item"]}
+        >
+          {name}
+        </label>
       </div>
       <button className={style.button}>
         <BsTrash color="white" />
