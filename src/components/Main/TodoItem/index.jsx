@@ -18,9 +18,7 @@ const TodoItem = (props) => {
   };
 
   const deleteTodoItem = () => {
-    const updatedTodos = todos.filter(
-      (item, i) => item.name !== name && i !== index,
-    );
+    const updatedTodos = todos.filter((item, i) => i !== index);
 
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
     setTodos(updatedTodos);
