@@ -5,8 +5,14 @@
   border: none;
 }
 
-.icon {
+.icon-sun {
   fill: #ffffff;
+  width: 1.25rem;
+  height: auto;
+}
+
+.icon-moon {
+  fill: #5c5a54;
   width: 1.25rem;
   height: auto;
 }

@@ -4,11 +4,11 @@ import ThemeMode from "./ThemeMode";
 import style from "./Top.module.css";
 
 const Top = (props) => {
-  const { status, setStatus, setTodos } = props;
+  const { status, setStatus, setTodos, theme, setTheme } = props;
 
   return (
     <header className={style.wrapper}>
-      <ThemeMode />
+      <ThemeMode theme={theme} setTheme={setTheme} />
       <StatusTabs status={status} setStatus={setStatus} setTodos={setTodos} />
     </header>
   );
