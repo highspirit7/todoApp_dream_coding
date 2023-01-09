@@ -1,27 +1,15 @@
 import React from "react";
 import style from "./StatusTabs.module.css";
 import { getItemAndParse } from "utils/localStorage";
+import { filteredTodos } from "utils/todos";
 
 const StatusTabs = (props) => {
   const { status, setStatus, setTodos } = props;
   const todosInLS = getItemAndParse("todos");
 
-  const filteredTodos = (status) => {
-    switch (status) {
-      case "all":
-        return todosInLS;
-      case "active":
-        return todosInLS.filter((item) => !item.done);
-      case "completed":
-        return todosInLS.filter((item) => item.done);
-      default:
-        return todosInLS;
-    }
-  };
-
   const onClickTab = (status) => {
     setStatus(status);
-    setTodos(filteredTodos(status));
+    setTodos(filteredTodos(status, todosInLS));
   };
 
   return (

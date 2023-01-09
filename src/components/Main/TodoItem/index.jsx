@@ -1,26 +1,35 @@
 import React from "react";
 import { BsTrash } from "react-icons/bs";
+import { filteredTodos } from "utils/todos";
 import { getItemAndParse } from "utils/localStorage";
 import style from "./TodoItem.module.css";
 
 const TodoItem = (props) => {
-  const { item, setTodos, index, todos } = props;
-  const { name, done } = item;
+  const { item, setTodos, todos, tabStatus } = props;
+  const { name, done, id } = item;
+  const todosInLS = getItemAndParse("todos");
 
   const checkTodoItem = (value) => {
-    const todos = getItemAndParse("todos");
-    const updatedItem = { name, done: value };
+    const updatedItem = { name, done: value, id };
 
-    todos[index] = updatedItem;
+    localStorage.setItem(
+      "todos",
+      JSON.stringify(
+        todosInLS.map((item) => (item.id === id ? updatedItem : item)),
+      ),
+    );
 
-    localStorage.setItem("todos", JSON.stringify(todos));
-    setTodos(todos);
+    const updatedTodos = todos.map((item) =>
+      item.id === id ? updatedItem : item,
+    );
+    setTodos(filteredTodos(tabStatus, updatedTodos));
   };
 
   const deleteTodoItem = () => {
-    const updatedTodos = todos.filter((item, i) => i !== index);
+    const updatedTodos = todos.filter((item) => item.id !== id);
+    const updatedTodosInLS = todosInLS.filter((item) => item.id !== id);
 
-    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    localStorage.setItem("todos", JSON.stringify(updatedTodosInLS));
     setTodos(updatedTodos);
   };
 

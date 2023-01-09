@@ -13,13 +13,14 @@ const Bottom = (props) => {
 
       const newItem = { name: inputValue, done: false };
 
-      let newTodos;
+      let newTodos, id;
 
       if (prevTodos) {
-        prevTodos.push(newItem);
+        id = prevTodos[prevTodos.length - 1].id + 1;
+        prevTodos.push({ ...newItem, id });
         newTodos = JSON.stringify(prevTodos);
       } else {
-        newTodos = JSON.stringify([newItem]);
+        newTodos = JSON.stringify([{ ...newItem, id: 1 }]);
       }
 
       localStorage.setItem("todos", newTodos);
