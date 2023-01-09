@@ -7,6 +7,7 @@ import Bottom from "components/Bottom";
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState("all");
   const todoItems = getItemAndParse("todos");
 
   useEffect(() => {
@@ -15,7 +16,7 @@ function TodoApp() {
 
   return (
     <div className={style["todo-app"]}>
-      <Top />
+      <Top status={status} setStatus={setStatus} setTodos={setTodos} />
       <Main todos={todos} setTodos={setTodos} />
       <Bottom setTodos={setTodos} />
     </div>

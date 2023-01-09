@@ -13,3 +13,9 @@
   color: #eb9534;
   cursor: pointer;
 }
+
+.selected {
+  padding-bottom: 2px;
+  border-bottom: 1px solid beige;
+  font-weight: 600;
+}

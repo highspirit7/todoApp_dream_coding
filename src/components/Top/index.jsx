@@ -3,11 +3,13 @@ import StatusTabs from "./StatusTabs";
 import ThemeMode from "./ThemeMode";
 import style from "./Top.module.css";
 
-const Top = () => {
+const Top = (props) => {
+  const { status, setStatus, setTodos } = props;
+
   return (
     <header className={style.wrapper}>
       <ThemeMode />
-      <StatusTabs />
+      <StatusTabs status={status} setStatus={setStatus} setTodos={setTodos} />
     </header>
   );
 };
