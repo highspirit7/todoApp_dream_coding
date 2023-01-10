@@ -1,4 +1,11 @@
 .main-wrapper {
-  background-color: #292c63;
   flex-grow: 10;
+}
+
+.light-theme {
+  background-color: #fff;
+}
+
+.dark-theme {
+  background-color: #292c63;
 }

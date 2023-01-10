@@ -7,9 +7,18 @@ const Top = (props) => {
   const { status, setStatus, setTodos, theme, setTheme } = props;
 
   return (
-    <header className={style.wrapper}>
+    <header
+      className={`${style.wrapper} ${
+        theme === "dark" ? style["dark-theme"] : style["light-theme"]
+      }`}
+    >
       <ThemeMode theme={theme} setTheme={setTheme} />
-      <StatusTabs status={status} setStatus={setStatus} setTodos={setTodos} />
+      <StatusTabs
+        status={status}
+        setStatus={setStatus}
+        setTodos={setTodos}
+        theme={theme}
+      />
     </header>
   );
 };

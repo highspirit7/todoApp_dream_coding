@@ -4,7 +4,7 @@ import { getItemAndParse } from "utils/localStorage";
 import { filteredTodos } from "utils/todos";
 
 const StatusTabs = (props) => {
-  const { status, setStatus, setTodos } = props;
+  const { status, setStatus, setTodos, theme } = props;
   const todosInLS = getItemAndParse("todos");
 
   const onClickTab = (status) => {
@@ -12,27 +12,30 @@ const StatusTabs = (props) => {
     setTodos(filteredTodos(status, todosInLS));
   };
 
+  const allTabClassNames = `${style.tab} ${
+    status === "all" ? style.selected : ""
+  } ${theme === "dark" ? style["dark-theme"] : style["light-theme"]}`;
+  const activeTabClassNames = `${style.tab} ${
+    status === "active" ? style.selected : ""
+  } ${theme === "dark" ? style["dark-theme"] : style["light-theme"]}`;
+  const completedTabClassNames = `${style.tab} ${
+    status === "completed" ? style.selected : ""
+  } ${theme === "dark" ? style["dark-theme"] : style["light-theme"]}`;
+
   return (
     <nav>
       <ul className={`${style["no-bullets"]} ${style.wrapper}`}>
-        <li
-          className={`${style.tab} ${status === "all" ? style.selected : ""} `}
-          onClick={() => onClickTab("all")}
-        >
+        <li className={allTabClassNames} onClick={() => onClickTab("all")}>
           All
         </li>
         <li
-          className={`${style.tab} ${
-            status === "active" ? style.selected : ""
-          } `}
+          className={activeTabClassNames}
           onClick={() => onClickTab("active")}
         >
           Active
         </li>
         <li
-          className={`${style.tab} ${
-            status === "completed" ? style.selected : ""
-          } `}
+          className={completedTabClassNames}
           onClick={() => onClickTab("completed")}
         >
           Completed

@@ -5,5 +5,12 @@
   border-bottom: 1px gray solid;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+}
+
+.light-theme {
+  background-color: #f2f3f4;
+}
+
+.dark-theme {
   background-color: #15173b;
 }

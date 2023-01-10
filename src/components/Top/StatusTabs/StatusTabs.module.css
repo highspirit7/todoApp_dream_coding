@@ -8,7 +8,7 @@
 }
 
 .tab {
-  padding: 0 0.5rem;
+  margin: 0 0.5rem;
   font-size: 1.5rem;
   color: #eb9534;
   cursor: pointer;
@@ -16,6 +16,14 @@
 
 .selected {
   padding-bottom: 2px;
-  border-bottom: 1px solid beige;
+  border-bottom: 1.5px solid;
   font-weight: 600;
+}
+
+.light-theme {
+  border-bottom-color: #5c5a54;
+}
+
+.dark-theme {
+  border-bottom-color: #faf9f5;
 }

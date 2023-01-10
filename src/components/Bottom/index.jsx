@@ -3,7 +3,7 @@ import { getItemAndParse } from "utils/localStorage";
 import style from "./Bottom.module.css";
 
 const Bottom = (props) => {
-  const { setTodos } = props;
+  const { setTodos, theme } = props;
   const [inputValue, setInputValue] = useState("");
   const localStorage = window.localStorage;
 
@@ -34,7 +34,11 @@ const Bottom = (props) => {
   };
 
   return (
-    <div className={style["bottom"]}>
+    <div
+      className={`${style["bottom"]} ${
+        theme === "dark" ? style["dark-theme"] : style["light-theme"]
+      }`}
+    >
       <div className={style["button-input-wrapper"]}>
         <input
           placeholder="Add Todo"

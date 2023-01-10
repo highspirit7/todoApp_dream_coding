@@ -5,9 +5,19 @@ import { getItemAndParse } from "utils/localStorage";
 import style from "./TodoItem.module.css";
 
 const TodoItem = (props) => {
-  const { item, setTodos, todos, tabStatus } = props;
+  const { item, setTodos, todos, tabStatus, theme } = props;
   const { name, done, id } = item;
   const todosInLS = getItemAndParse("todos");
+
+  const labelClassNames = `${
+    done
+      ? theme === "dark"
+        ? style["completed-item__dark-theme"]
+        : style["completed-item__light-theme"]
+      : theme === "dark"
+      ? style["uncompleted-item__dark-theme"]
+      : style["uncompleted-item__light-theme"]
+  }`;
 
   const checkTodoItem = (value) => {
     const updatedItem = { name, done: value, id };
@@ -45,10 +55,7 @@ const TodoItem = (props) => {
             checkTodoItem(e.target.checked);
           }}
         />
-        <label
-          htmlFor="todoItem"
-          className={done ? style["completed-item"] : style["uncompleted-item"]}
-        >
+        <label htmlFor="todoItem" className={labelClassNames}>
           {name}
         </label>
       </div>

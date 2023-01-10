@@ -23,13 +23,22 @@
   font-size: 1.25rem;
 }
 
-.uncompleted-item {
+.uncompleted-item__dark-theme {
   color: #fff;
 }
 
-.completed-item {
+.uncompleted-item__light-theme {
+  color: #2c3e50;
+}
+
+.completed-item__dark-theme {
   text-decoration: line-through;
   color: #5c5a54;
+}
+
+.completed-item__light-theme {
+  text-decoration: line-through;
+  color: #2c3e50;
 }
 
 .checkbox {
@@ -37,4 +46,5 @@
   height: 1rem;
   margin-right: 1rem;
   cursor: pointer;
+  accent-color: #eb9534;
 }
