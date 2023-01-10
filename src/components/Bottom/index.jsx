@@ -11,11 +11,15 @@ const Bottom = (props) => {
     try {
       const prevTodos = getItemAndParse("todos");
 
-      const newItem = { name: inputValue, done: false };
+      const newItem = { name: inputValue, completed: false };
 
       let newTodos, id;
 
-      if (prevTodos) {
+      if (!inputValue) {
+        alert("Input a name of todo, please!");
+      }
+
+      if (prevTodos && prevTodos.length > 0) {
         id = prevTodos[prevTodos.length - 1].id + 1;
         prevTodos.push({ ...newItem, id });
         newTodos = JSON.stringify(prevTodos);

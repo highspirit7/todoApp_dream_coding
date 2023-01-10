@@ -3,9 +3,9 @@ const filteredTodos = (status, todos) => {
     case "all":
       return todos;
     case "active":
-      return todos.filter((item) => !item.done);
+      return todos.filter((item) => !item.completed);
     case "completed":
-      return todos.filter((item) => item.done);
+      return todos.filter((item) => item.completed);
     default:
       return todos;
   }

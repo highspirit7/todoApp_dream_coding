@@ -6,11 +6,11 @@ import style from "./TodoItem.module.css";
 
 const TodoItem = (props) => {
   const { item, setTodos, todos, tabStatus, theme } = props;
-  const { name, done, id } = item;
+  const { name, completed, id } = item;
   const todosInLS = getItemAndParse("todos");
 
   const labelClassNames = `${
-    done
+    completed
       ? theme === "dark"
         ? style["completed-item__dark-theme"]
         : style["completed-item__light-theme"]
@@ -20,7 +20,7 @@ const TodoItem = (props) => {
   }`;
 
   const checkTodoItem = (value) => {
-    const updatedItem = { name, done: value, id };
+    const updatedItem = { name, completed: value, id };
 
     localStorage.setItem(
       "todos",
@@ -49,7 +49,7 @@ const TodoItem = (props) => {
         <input
           type="checkbox"
           id="todoItem"
-          checked={done}
+          checked={completed}
           className={style.checkbox}
           onChange={(e) => {
             checkTodoItem(e.target.checked);
