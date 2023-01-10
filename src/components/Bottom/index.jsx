@@ -15,8 +15,9 @@ const Bottom = (props) => {
 
       let newTodos, id;
 
-      if (!inputValue) {
+      if (inputValue.trim().length === 0) {
         alert("Input a name of todo, please!");
+        return;
       }
 
       if (prevTodos && prevTodos.length > 0) {
