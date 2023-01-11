@@ -30,7 +30,7 @@ function TodoApp() {
         tabStatus={tabStatus}
         theme={theme}
       />
-      <Bottom setTodos={setTodos} theme={theme} />
+      <Bottom setTodos={setTodos} setTabStatus={setTabStatus} theme={theme} />
     </div>
   );
 }

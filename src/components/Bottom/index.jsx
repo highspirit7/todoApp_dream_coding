@@ -4,11 +4,11 @@ import { getItemAndParse } from "utils/localStorage";
 import style from "./Bottom.module.css";
 
 const Bottom = (props) => {
-  const { setTodos, theme } = props;
+  const { setTodos, setTabStatus, theme } = props;
   const [inputValue, setInputValue] = useState("");
   const localStorage = window.localStorage;
 
-  const addItem = () => {
+  const handleCreateItem = () => {
     try {
       const prevTodos = getItemAndParse("todos");
 
@@ -29,6 +29,7 @@ const Bottom = (props) => {
       }
 
       localStorage.setItem("todos", newTodos);
+      setTabStatus("all");
       setTodos(JSON.parse(newTodos));
     } catch (error) {
       console.error(error);
@@ -51,7 +52,7 @@ const Bottom = (props) => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <button className={style["add-button"]} onClick={addItem}>
+        <button className={style["add-button"]} onClick={handleCreateItem}>
           Add
         </button>
       </div>
