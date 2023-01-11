@@ -1,15 +1,11 @@
 import React from "react";
 import style from "./StatusTabs.module.css";
-import { getItemAndParse } from "utils/localStorage";
-import { filteredTodos } from "utils/todos";
 
 const StatusTabs = (props) => {
-  const { status, setStatus, setTodos, theme } = props;
-  const todosInLS = getItemAndParse("todos");
+  const { status, onClickTab, theme } = props;
 
-  const onClickTab = (status) => {
-    setStatus(status);
-    setTodos(filteredTodos(status, todosInLS));
+  const handleClick = (status) => {
+    onClickTab(status);
   };
 
   const allTabClassNames = `${style.tab} ${
@@ -25,18 +21,18 @@ const StatusTabs = (props) => {
   return (
     <nav>
       <ul className={`${style["no-bullets"]} ${style.wrapper}`}>
-        <li className={allTabClassNames} onClick={() => onClickTab("all")}>
+        <li className={allTabClassNames} onClick={() => handleClick("all")}>
           All
         </li>
         <li
           className={activeTabClassNames}
-          onClick={() => onClickTab("active")}
+          onClick={() => handleClick("active")}
         >
           Active
         </li>
         <li
           className={completedTabClassNames}
-          onClick={() => onClickTab("completed")}
+          onClick={() => handleClick("completed")}
         >
           Completed
         </li>

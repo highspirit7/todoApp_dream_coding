@@ -1,10 +1,18 @@
 import React from "react";
+import { getItemAndParse } from "utils/localStorage";
+import { filteredTodos } from "utils/todos";
 import StatusTabs from "./StatusTabs";
 import ThemeMode from "./ThemeMode";
 import style from "./Top.module.css";
 
 const Top = (props) => {
   const { status, setStatus, setTodos, theme, setTheme } = props;
+  const todosInLS = getItemAndParse("todos");
+
+  const handleClickTab = (status) => {
+    setStatus(status);
+    setTodos(filteredTodos(status, todosInLS));
+  };
 
   return (
     <header
@@ -13,12 +21,7 @@ const Top = (props) => {
       }`}
     >
       <ThemeMode theme={theme} setTheme={setTheme} />
-      <StatusTabs
-        status={status}
-        setStatus={setStatus}
-        setTodos={setTodos}
-        theme={theme}
-      />
+      <StatusTabs status={status} onClickTab={handleClickTab} theme={theme} />
     </header>
   );
 };

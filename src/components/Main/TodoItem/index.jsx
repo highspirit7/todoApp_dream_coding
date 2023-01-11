@@ -1,13 +1,11 @@
 import React from "react";
 import { BsTrash } from "react-icons/bs";
-import { filteredTodos } from "utils/todos";
-import { getItemAndParse } from "utils/localStorage";
+
 import style from "./TodoItem.module.css";
 
 const TodoItem = (props) => {
-  const { item, setTodos, todos, tabStatus, theme } = props;
-  const { name, completed, id } = item;
-  const todosInLS = getItemAndParse("todos");
+  const { item, onCheck, onDelete, theme } = props;
+  const { name, completed } = item;
 
   const labelClassNames = `${
     completed
@@ -19,28 +17,12 @@ const TodoItem = (props) => {
       : style["uncompleted-item__light-theme"]
   }`;
 
-  const checkTodoItem = (value) => {
-    const updatedItem = { name, completed: value, id };
-
-    localStorage.setItem(
-      "todos",
-      JSON.stringify(
-        todosInLS.map((item) => (item.id === id ? updatedItem : item)),
-      ),
-    );
-
-    const updatedTodos = todos.map((item) =>
-      item.id === id ? updatedItem : item,
-    );
-    setTodos(filteredTodos(tabStatus, updatedTodos));
+  const handleCheck = (checked) => {
+    onCheck({ ...item, completed: checked });
   };
 
-  const deleteTodoItem = () => {
-    const updatedTodos = todos.filter((item) => item.id !== id);
-    const updatedTodosInLS = todosInLS.filter((item) => item.id !== id);
-
-    localStorage.setItem("todos", JSON.stringify(updatedTodosInLS));
-    setTodos(updatedTodos);
+  const handleDelete = () => {
+    onDelete(item);
   };
 
   return (
@@ -52,14 +34,14 @@ const TodoItem = (props) => {
           checked={completed}
           className={style.checkbox}
           onChange={(e) => {
-            checkTodoItem(e.target.checked);
+            handleCheck(e.target.checked);
           }}
         />
         <label htmlFor="todoItem" className={labelClassNames}>
           {name}
         </label>
       </div>
-      <button className={style.button} onClick={deleteTodoItem}>
+      <button className={style.button} onClick={handleDelete}>
         <BsTrash color="white" />
       </button>
     </li>
