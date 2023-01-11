@@ -19,7 +19,7 @@
 
 .add-button {
   padding: 0 1rem;
-  background-color: #eb9534;
+  background-color: var(--color-orange);
   color: #ffffff;
   height: 100%;
   border: none;

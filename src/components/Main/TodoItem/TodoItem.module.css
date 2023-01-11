@@ -6,7 +6,7 @@
   height: 1.5rem;
   padding: 0;
   cursor: pointer;
-  background: #5c5a54;
+  background: var(--color-grey);
   border: none;
   border-radius: 50%;
 }
@@ -46,5 +46,5 @@
   height: 1rem;
   margin-right: 1rem;
   cursor: pointer;
-  accent-color: #eb9534;
+  accent-color: var(--color-orange);
 }

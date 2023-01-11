@@ -12,7 +12,7 @@
 }
 
 .icon-moon {
-  fill: #5c5a54;
+  fill: var(--color-grey);
   width: 1.25rem;
   height: auto;
 }

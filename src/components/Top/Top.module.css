@@ -8,9 +8,9 @@
 }
 
 .light-theme {
-  background-color: #f2f3f4;
+  background-color: var(--side-bg-color__light);
 }
 
 .dark-theme {
-  background-color: #15173b;
+  background-color: var(--side-bg-color__dark);
 }

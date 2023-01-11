@@ -10,7 +10,7 @@
 .tab {
   margin: 0 0.5rem;
   font-size: 1.5rem;
-  color: #eb9534;
+  color: var(--color-orange);
   cursor: pointer;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .light-theme {
-  border-bottom-color: #5c5a54;
+  border-bottom-color: var(--color-grey);
 }
 
 .dark-theme {
