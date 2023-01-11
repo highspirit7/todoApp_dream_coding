@@ -16,7 +16,7 @@ const Main = (props) => {
           {todos.map((item) => (
             <TodoItem
               item={item}
-              key={`${item.name + item.id}`}
+              key={item.id}
               setTodos={setTodos}
               todos={todos}
               tabStatus={tabStatus}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { getItemAndParse } from "utils/localStorage";
 import style from "./Bottom.module.css";
 
@@ -13,7 +14,7 @@ const Bottom = (props) => {
 
       const newItem = { name: inputValue, completed: false };
 
-      let newTodos, id;
+      let newTodos;
 
       if (inputValue.trim().length === 0) {
         alert("Input a name of todo, please!");
@@ -21,11 +22,10 @@ const Bottom = (props) => {
       }
 
       if (prevTodos && prevTodos.length > 0) {
-        id = prevTodos[prevTodos.length - 1].id + 1;
-        prevTodos.push({ ...newItem, id });
+        prevTodos.push({ ...newItem, id: uuidv4() });
         newTodos = JSON.stringify(prevTodos);
       } else {
-        newTodos = JSON.stringify([{ ...newItem, id: 1 }]);
+        newTodos = JSON.stringify([{ ...newItem, id: uuidv4() }]);
       }
 
       localStorage.setItem("todos", newTodos);
