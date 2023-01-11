@@ -6,7 +6,7 @@ import ThemeMode from "./ThemeMode";
 import style from "./Top.module.css";
 
 const Top = (props) => {
-  const { status, setStatus, setTodos, theme, setTheme } = props;
+  const { currentTab, setStatus, setTodos, theme, setTheme } = props;
   const todosInLS = getItemAndParse("todos");
 
   const handleClickTab = (status) => {
@@ -21,7 +21,11 @@ const Top = (props) => {
       }`}
     >
       <ThemeMode theme={theme} setTheme={setTheme} />
-      <StatusTabs status={status} onClickTab={handleClickTab} theme={theme} />
+      <StatusTabs
+        currentTab={currentTab}
+        onClickTab={handleClickTab}
+        theme={theme}
+      />
     </header>
   );
 };
