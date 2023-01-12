@@ -1,5 +1,6 @@
 .main-wrapper {
   flex-grow: 10;
+  overflow-y: auto;
 }
 
 .light-theme {
