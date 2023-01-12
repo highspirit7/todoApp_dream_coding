@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { getItemAndParse } from "utils/localStorage";
 import style from "./Bottom.module.css";
+import { useThemeContext } from "context/ThemeContext";
 
 const Bottom = (props) => {
-  const { setTodos, setTabStatus, theme } = props;
+  const { setTodos, setTabStatus } = props;
   const [inputValue, setInputValue] = useState("");
   const localStorage = window.localStorage;
+  const { theme } = useThemeContext();
 
   const handleCreateItem = () => {
     try {

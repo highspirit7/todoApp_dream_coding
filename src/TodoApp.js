@@ -4,11 +4,11 @@ import style from "./TodoApp.module.css";
 import Top from "components/Top";
 import Main from "components/Main";
 import Bottom from "components/Bottom";
+import { ThemeContextProvider } from "context/ThemeContext";
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
   const [currentTab, setCurrentTab] = useState("all");
-  const [theme, setTheme] = useState("dark");
   const todoItems = getItemAndParse("todos");
 
   useEffect(() => {
@@ -16,22 +16,17 @@ function TodoApp() {
   }, []);
 
   return (
-    <div className={style["todo-app"]}>
-      <Top
-        currentTab={currentTab}
-        setStatus={setCurrentTab}
-        setTodos={setTodos}
-        theme={theme}
-        setTheme={setTheme}
-      />
-      <Main
-        todos={todos}
-        setTodos={setTodos}
-        tabStatus={currentTab}
-        theme={theme}
-      />
-      <Bottom setTodos={setTodos} setTabStatus={setCurrentTab} theme={theme} />
-    </div>
+    <ThemeContextProvider>
+      <div className={style["todo-app"]}>
+        <Top
+          currentTab={currentTab}
+          setStatus={setCurrentTab}
+          setTodos={setTodos}
+        />
+        <Main todos={todos} setTodos={setTodos} tabStatus={currentTab} />
+        <Bottom setTodos={setTodos} setTabStatus={setCurrentTab} />
+      </div>
+    </ThemeContextProvider>
   );
 }
 

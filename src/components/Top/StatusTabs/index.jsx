@@ -1,9 +1,11 @@
 import React from "react";
 import style from "./StatusTabs.module.css";
+import { useThemeContext } from "context/ThemeContext";
 
 const StatusTabs = (props) => {
   const statuses = ["all", "active", "completed"];
-  const { currentTab, onClickTab, theme } = props;
+  const { currentTab, onClickTab } = props;
+  const { theme } = useThemeContext();
 
   const handleClick = (status) => {
     onClickTab(status);

@@ -1,11 +1,12 @@
 import React from "react";
 import { BsTrash } from "react-icons/bs";
-
+import { useThemeContext } from "context/ThemeContext";
 import style from "./TodoItem.module.css";
 
 const TodoItem = (props) => {
-  const { item, onCheck, onDelete, theme } = props;
+  const { item, onCheck, onDelete } = props;
   const { name, completed } = item;
+  const { theme } = useThemeContext();
 
   const labelClassNames = `${
     completed

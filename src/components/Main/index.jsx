@@ -3,10 +3,12 @@ import { filteredTodos } from "utils/todos";
 import { getItemAndParse } from "utils/localStorage";
 import TodoItem from "./TodoItem";
 import style from "./Main.module.css";
+import { useThemeContext } from "context/ThemeContext";
 
 const Main = (props) => {
-  const { todos, setTodos, tabStatus, theme } = props;
+  const { todos, setTodos, tabStatus } = props;
   const todosInLS = getItemAndParse("todos");
+  const { theme } = useThemeContext();
 
   const handleCheckTodoItem = (checkedItem) => {
     localStorage.setItem(
@@ -48,7 +50,6 @@ const Main = (props) => {
               key={item.id}
               onCheck={handleCheckTodoItem}
               onDelete={handleDeleteTodoItem}
-              theme={theme}
             />
           ))}
         </ul>
