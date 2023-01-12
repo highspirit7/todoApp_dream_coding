@@ -5,7 +5,7 @@ import style from "./TodoItem.module.css";
 
 const TodoItem = (props) => {
   const { item, onCheck, onDelete } = props;
-  const { name, completed } = item;
+  const { name, completed, id } = item;
   const { theme } = useThemeContext();
 
   const labelClassNames = `${
@@ -31,14 +31,14 @@ const TodoItem = (props) => {
       <div>
         <input
           type="checkbox"
-          id="todoItem"
+          id={id}
           checked={completed}
           className={style.checkbox}
           onChange={(e) => {
             handleCheck(e.target.checked);
           }}
         />
-        <label htmlFor="todoItem" className={labelClassNames}>
+        <label htmlFor={id} className={labelClassNames}>
           {name}
         </label>
       </div>
